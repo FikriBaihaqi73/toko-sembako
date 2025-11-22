@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fikri Sembako - Kebutuhan Pokok Berkualitas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d7a3e 0%, #4a9d5f 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffa726;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d7a3e 0%, #4a9d5f 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #2d7a3e;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Products Section */
+        .products {
+            background: #f8f9fa;
+            padding: 80px 2rem;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d7a3e;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            color: #2d7a3e;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d7a3e;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #2d7a3e;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2d7a3e 0%, #4a9d5f 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a4d2a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🛒 Fikri Sembako</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Selamat Datang di Fikri Sembako</h1>
+        <p>Pusat Kebutuhan Pokok Terlengkap dengan Harga Terjangkau</p>
+        <a href="#products" class="btn">Lihat Produk</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>Tentang Kami</h2>
+        <p>Fikri Sembako adalah toko kebutuhan pokok yang menyediakan berbagai produk berkualitas dengan harga yang
+            terjangkau. Kami berkomitmen untuk memberikan pelayanan terbaik kepada seluruh pelanggan dengan menjamin
+            kesegaran dan kualitas produk.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Produk Kami</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-icon">🌾</div>
+                <h3>Beras & Serealia</h3>
+                <p>Berbagai jenis beras berkualitas dan serealia untuk kebutuhan harian</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🍳</div>
+                <h3>Minyak Goreng</h3>
+                <p>Minyak goreng kemasan berbagai merek pilihan</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🧂</div>
+                <h3>Bumbu Dapur</h3>
+                <p>Lengkap dari gula, garam, hingga bumbu instan</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🥫</div>
+                <h3>Makanan Kaleng</h3>
+                <p>Produk kaleng dan kemasan tahan lama</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🍜</div>
+                <h3>Mi Instan</h3>
+                <p>Berbagai merek mi instan favorit keluarga</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🧴</div>
+                <h3>Kebutuhan Rumah</h3>
+                <p>Sabun, detergen, dan perlengkapan rumah tangga, Racun tikus</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Keunggulan Kami</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✅</div>
+                <h3>Produk Berkualitas</h3>
+                <p>Kami hanya menjual produk original dan berkualitas terjamin</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h3>Harga Terjangkau</h3>
+                <p>Harga bersaing dan terjangkau untuk semua kalangan</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <h3>Stok Lengkap</h3>
+                <p>Tersedia berbagai produk kebutuhan pokok lengkap</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">😊</div>
+                <h3>Pelayanan Ramah</h3>
+                <p>Dilayani dengan ramah dan profesional</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">😊</div>
+                <h3>Produk Terjangkau</h3>
+                <p>Harga produk terjangkau dan terjangkau</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Hubungi Kami</h2>
+        <p>Kunjungi toko kami atau hubungi untuk informasi lebih lanjut</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                    <strong>Alamat</strong><br>
+                    Jl. aja ngopi kaga no 123
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <div>
+                    <strong>Telepon</strong><br>
+                    0812-666-7483-8484
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🕒</span>
+                <div>
+                    <strong>Jam Buka</strong><br>
+                    Setiap Hari: 07.00 - 21.00
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fikri Sembako. Semua Hak Dilindungi.</p>
+    </footer>
+</body>
+
+</html>
